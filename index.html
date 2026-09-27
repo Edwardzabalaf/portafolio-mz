@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matias Zabala B. | Scout Dashboard</title>
-    <link href="https://jsdelivr.net" rel="stylesheet">
+    <script src="https://tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
     <style>
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
@@ -22,11 +27,6 @@
             </div>
             <span class="font-black tracking-wider text-sm uppercase text-slate-500 dark:text-slate-400">PRO ATHLETE <span class="text-[#0043ff]">SCOUT</span></span>
         </div>
-        
-        <button id="theme-toggle" class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 p-2.5 rounded-xl hover:scale-105 transition-all">
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 14.121l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zm2.12-10.606a1 1 0 011.414 0l.707.707a1 1 0 11-1.414 1.414l-.707-.707a1 1 0 010-1.414zm-3.17 7.485a1 1 0 100-2H3a1 1 0 100 2h1z"></path></svg>
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-        </button>
     </header>
 
     <!-- ÁREA PRINCIPAL -->
@@ -37,7 +37,7 @@
             <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-center relative overflow-hidden shadow-sm">
                 <div class="absolute top-0 left-0 right-0 h-24 bg-[#0043ff] opacity-90"></div>
                 <div class="relative w-32 h-32 mx-auto mt-8 rounded-full border-4 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-800 overflow-hidden shadow-md flex items-center justify-center">
-                    <img src="foto-perfil.jpg" alt="Matias Zabala" class="w-full h-full object-cover">
+                    <img src="foto-perfil.jpg" alt="Matias Zabala" class="w-full h-full object-cover" onerror="this.style.display='none'">
                     <span class="absolute text-slate-400 font-bold text-xs pointer-events-none">FOTO PERFIL</span>
                 </div>
                 <h2 class="text-2xl font-black mt-4 tracking-tight">MATIAS ZABALA B.</h2>
@@ -71,13 +71,14 @@
         <!-- COLUMNA DERECHA -->
         <section class="lg:col-span-8 flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm lg:h-[calc(100vh-140px)] overflow-hidden">
             <nav class="flex border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/40 p-2 gap-1 overflow-x-auto shrink-0">
-                <button onclick="switchTab('perfil-tab')" id="btn-perfil-tab" class="tab-btn active-tab px-5 py-2.5 rounded-xl font-bold text-sm transition-all whitespace-nowrap bg-[#0043ff] text-white shadow-md shadow-blue-600/10">Perfil de Rendimiento</button>
+                <button onclick="switchTab('perfil-tab')" id="btn-perfil-tab" class="tab-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-all whitespace-nowrap bg-[#0043ff] text-white shadow-md shadow-blue-600/10">Perfil de Rendimiento</button>
                 <button onclick="switchTab('videos-tab')" id="btn-videos-tab" class="tab-btn px-5 py-2.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">Highlights / Videos</button>
                 <button onclick="switchTab('fotos-tab')" id="btn-fotos-tab" class="tab-btn px-5 py-2.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">Galería Fotos</button>
                 <button onclick="switchTab('contacto-tab')" id="btn-contacto-tab" class="tab-btn px-5 py-2.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">Contacto</button>
             </nav>
 
             <div class="flex-1 p-6 overflow-y-auto custom-scrollbar">
+                
                 <!-- PESTAÑA PERFIL -->
                 <div id="perfil-tab" class="tab-content space-y-6">
                     <div>
@@ -103,3 +104,90 @@
                                 <span class="text-xs font-medium text-slate-500">Minutos Jugados</span>
                             </div>
                             <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <span class="block text-2xl font-black text-emerald-500">8</span>
+                                <span class="text-xs font-medium text-slate-500">Vallas en Cero (Puertas 0)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA VIDEOS -->
+                <div id="videos-tab" class="tab-content hidden space-y-8">
+                    <div class="space-y-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-[#0043ff]">Video de Jugadas Destacadas (YouTube)</span>
+                        <div class="w-full aspect-video bg-slate-950 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800">
+                            <iframe class="w-full h-full" src="https://youtube.com" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA FOTOS -->
+                <div id="fotos-tab" class="tab-content hidden space-y-6">
+                    <div>
+                        <h3 class="text-xl font-extrabold tracking-tight">Galería Fotográfica</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Registro visual de la temporada.</p>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <div class="bg-slate-200 dark:bg-slate-800 aspect-square rounded-xl overflow-hidden border border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-center relative">
+                            <img src="foto1.jpg" alt="Matias" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                            <span class="text-xs text-slate-500 absolute">Foto 1</span>
+                        </div>
+                        <div class="bg-slate-200 dark:bg-slate-800 aspect-square rounded-xl overflow-hidden border border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-center relative">
+                            <img src="foto2.jpg" alt="Matias" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                            <span class="text-xs text-slate-500 absolute">Foto 2</span>
+                        </div>
+                        <div class="bg-slate-200 dark:bg-slate-800 aspect-square rounded-xl overflow-hidden border border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-center relative">
+                            <img src="foto3.jpg" alt="Matias" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                            <span class="text-xs text-slate-500 absolute">Foto 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA CONTACTO -->
+                <div id="contacto-tab" class="tab-content hidden flex flex-col justify-center items-center text-center py-12 space-y-4">
+                    <div class="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-full text-[#0043ff] mb-2 flex items-center justify-center w-16 h-16 mx-auto">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-extrabold tracking-tight">Contacto de Representación</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm max-w-sm">Canal oficial para la coordinación de pruebas, visorías o solicitudes técnicas.</p>
+                    <div class="pt-4 w-full max-w-sm mx-auto">
+                        <a href="mailto:EDWARDZABALAF@GMAIL.COM" class="block w-full bg-[#0043ff] hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-md shadow-blue-600/20 tracking-wide">
+                            EDWARDZABALAF@GMAIL.COM
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="w-full text-center py-4 border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 shrink-0 transition-colors duration-300">
+        <p class="text-xs font-bold tracking-widest text-slate-400 dark:text-slate-600 uppercase">
+            Creado por: <a href="https://instagram.com" target="_blank" class="text-[#0043ff] hover:underline">@ENLAGRADAMCBO</a>
+        </p>
+    </footer>
+
+    <!-- LÓGICA DE INTERACTIVIDAD (JAVASCRIPT) -->
+    <script>
+        function switchTab(tabId) {
+            var contents = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.add('hidden');
+            }
+            document.getElementById(tabId).classList.remove('hidden');
+            
+            var buttons = document.getElementsByClassName('tab-btn');
+            for (var j = 0; j < buttons.length; j++) {
+                buttons[j].classList.remove("bg-[#0043ff]", "text-white", "shadow-md", "shadow-blue-600/10");
+                buttons[j].classList.add("text-slate-500", "dark:text-slate-400", "hover:bg-slate-100", "dark:hover:bg-slate-800");
+            }
+            
+            var activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove("text-slate-500", "dark:text-slate-400", "hover:bg-slate-100", "dark:hover:bg-slate-800");
+                activeBtn.classList.add("bg-[#0043ff]", "text-white", "shadow-md", "shadow-blue-600/10");
+            }
+        }
+    </script>
+</body>
+</html>
